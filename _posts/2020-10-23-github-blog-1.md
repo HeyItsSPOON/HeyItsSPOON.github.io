@@ -89,10 +89,10 @@ Github 페이지를 사용 시 주의해야 할 사항 역시 분명히 존재�
 
 Github 블로그를 만들기 위해서는 우선 Github에 새로운 repository를 생성해야한다.
 ![new-repository](https://heyitsspoon.github.io/assets/images/github-blog/new-repository.png "새 저장소 만들기")
-![repository-create](https://heyitsspoon.github.io/assets/images/github-blog/repository-create.png "새 저장소 만들기")
+![repository-create](https://heyitsspoon.github.io/assets/images/github-blog/repository-create.PNG "새 저장소 만들기")
 Github에 접속하여 새로운 repository를 생성한다. 이 때 Repository name은 [github username].github.io 형식으로 생성해야 username.github.io 도메인으로 생성되는 Github 페이지에 접속 할 수 있다.
 Add a README file에 체크 후 생성하면 약 1분에서 5분 후에 README 파일의 내용이 보이는 username.github.io 페이지를 볼 수 있다.
-![new-page](https://heyitsspoon.github.io/assets/images/github-blog/new-page.png "블로그 생성")
+![new-page](https://heyitsspoon.github.io/assets/images/github-blog/new-page.PNG "블로그 생성")
 자 이제 나만의 Github 블로그를 생성하기 위한 기본적인 작업이 끝났다.
 
 
@@ -101,11 +101,11 @@ Add a README file에 체크 후 생성하면 약 1분에서 5분 후에 README �
 
 Github Page는 Github에서 제공하는 정적사이트 (Static Website) 호스팅 서비스이다.
 잠깐 동적사이트와 정적사이트의 차이점이 무엇인지 알아보자.
-![static](https://heyitsspoon.github.io/assets/images/github-blog/static.png "정적사이트")
+![static](https://heyitsspoon.github.io/assets/images/github-blog/static.PNG "정적사이트")
 정적사이트는 클라이언트가 웹서버로 요청을 보내고, 웹서버는 단순히 로컬 저장소에 저장되어있는 html, img, css 파일 등을 사용자에게 보여주는 방식이다.
 따라서 정적사이트는 단순히 기존에 만들어져있는 정보를 보여주는 것이기 때문에 컨텐츠가 거의 변경되지 않는 포트폴리오나 소개글 등에 적합하다.
 
-![dynamic](https://heyitsspoon.github.io/assets/images/github-blog/dynamic.png "동적사이트")
+![dynamic](https://heyitsspoon.github.io/assets/images/github-blog/dynamic.PNG "동적사이트")
 그에 반에 동적사이트는 클라이언트가 웹서버로 요청을 보내면, url로 들어온 정보를 통해 웹 어플리케이션에서 해당 정보에 맞는 처리를 한 후
 데이터베이스에 있는 자료를 불러와 클라이언트에게 보여준다.
 실시간으로 처리되어야 하는 댓글이나 로그인, 회원가입 기능 혹은 쇼핑몰 장바구니 등 상황에 맞게 페이지를 보여주어야 할 때 적합하다.
@@ -203,7 +203,7 @@ git push
 ```
 git-cmd로 현재 작업중인 repository 디렉토리로 이동 후에 바뀐 파일을 검사하고 commit 후에 push 해주도록 한다.
 
-![theme-apply](https://heyitsspoon.github.io/assets/images/github-blog/theme-apply.png "테마 적용 완료")
+![theme-apply](https://heyitsspoon.github.io/assets/images/github-blog/theme-apply.PNG "테마 적용 완료")
 그 후 다시 url로 접속 해보면 깔끔하게 적용 된 테마를 만날 수 있다.
 
 
