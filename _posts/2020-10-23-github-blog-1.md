@@ -246,8 +246,9 @@ bundle install로 Gem을 등록하도록 한다.
 ### 주의사항
 
 ```
-Bundler could not find compatible versions for gem "ruby ":                                                               
-In Gemfile:                                                                                                               ruby                                                                                                                                                                                                                                            
+Bundler could not find compatible versions for gem "ruby ":
+In Gemfile: ruby
+
 github-pages was resolved to 193, which depends on
     listen (= 3.1.5) was resolved to 3.1.5, which depends on
     rb-inotify (~> 0.9, >= 0.9.7) was resolved to 0.9.10, which depends on
