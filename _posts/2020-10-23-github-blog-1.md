@@ -4,6 +4,8 @@ description: Github 블로그 구축부터 커스터마이징까지
 categories:
  - github
 tags:
+photos:
+
 ---
 
 > Github 블로그 구축하기 (1) - Github 블로그 생성
@@ -11,7 +13,7 @@ tags:
 <!-- more -->
 
 [1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/tutorial/2020/10/23/github-blog-1/)
-
+[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/tutorial/2020/10/25/github-blog-2/)
 
 
 
