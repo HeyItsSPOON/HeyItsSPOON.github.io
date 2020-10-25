@@ -88,11 +88,11 @@ Github 페이지를 사용 시 주의해야 할 사항 역시 분명히 존재�
 ### 저장소(repository) 만들기 [^4]
 
 Github 블로그를 만들기 위해서는 우선 Github에 새로운 repository를 생성해야한다.
-![new-repository](/assets/images/github-blog/new-repository.png "새 저장소 만들기")
-![repository-create](/assets/images/github-blog/repository-create.png "새 저장소 만들기")
+![new-repository](./assets/images/github-blog/new-repository.png "새 저장소 만들기")
+![repository-create](./assets/images/github-blog/repository-create.png "새 저장소 만들기")
 Github에 접속하여 새로운 repository를 생성한다. 이 때 Repository name은 [github username].github.io 형식으로 생성해야 username.github.io 도메인으로 생성되는 Github 페이지에 접속 할 수 있다.
 Add a README file에 체크 후 생성하면 약 1분에서 5분 후에 README 파일의 내용이 보이는 username.github.io 페이지를 볼 수 있다.
-![new-page](/assets/images/github-blog/new-page.png "블로그 생성")
+![new-page](./assets/images/github-blog/new-page.png "블로그 생성")
 자 이제 나만의 Github 블로그를 생성하기 위한 기본적인 작업이 끝났다.
 
 
@@ -101,11 +101,11 @@ Add a README file에 체크 후 생성하면 약 1분에서 5분 후에 README �
 
 Github Page는 Github에서 제공하는 정적사이트 (Static Website) 호스팅 서비스이다.
 잠깐 동적사이트와 정적사이트의 차이점이 무엇인지 알아보자.
-![static](/assets/images/github-blog/static.png "정적사이트")
+![static](./assets/images/github-blog/static.png "정적사이트")
 정적사이트는 클라이언트가 웹서버로 요청을 보내고, 웹서버는 단순히 로컬 저장소에 저장되어있는 html, img, css 파일 등을 사용자에게 보여주는 방식이다.
 따라서 정적사이트는 단순히 기존에 만들어져있는 정보를 보여주는 것이기 때문에 컨텐츠가 거의 변경되지 않는 포트폴리오나 소개글 등에 적합하다.
 
-![static](/assets/images/github-blog/dynamic.png "동적사이트")
+![static](./assets/images/github-blog/dynamic.png "동적사이트")
 그에 반에 동적사이트는 클라이언트가 웹서버로 요청을 보내면, url로 들어온 정보를 통해 웹 어플리케이션에서 해당 정보에 맞는 처리를 한 후
 데이터베이스에 있는 자료를 불러와 클라이언트에게 보여준다.
 실시간으로 처리되어야 하는 댓글이나 로그인, 회원가입 기능 혹은 쇼핑몰 장바구니 등 상황에 맞게 페이지를 보여주어야 할 때 적합하다.
@@ -153,19 +153,19 @@ Github Page는 Github에서 제공하는 정적사이트 (Static Website) 호스
 
 ### 테마 적용하기
 
-![static](/assets/images/github-blog/go-repository.png "테마 선택")
-![static](/assets/images/github-blog/copy-zip.png "테마 다운로드")
+![static](./assets/images/github-blog/go-repository.png "테마 선택")
+![static](./assets/images/github-blog/copy-zip.png "테마 다운로드")
 테마를 선택하였으면 해당 테마의 repository로 이동 할 수 있는 링크가 있을 것이다.
 NexT repository로 이동 후 테마를 zip 파일로 다운받은 후 압축을 풀어준다.
 
 현재 서술할 적용법은 기본적으로 git-cmd를 기준으로 설명하는 것이기 때문에 기본적으로 git과 git 명령어를 사용 할 줄 안다는 전제하에 이야기 하겠다.
-![static](/assets/images/github-blog/copy-url.png "url 복사")
+![static](./assets/images/github-blog/copy-url.png "url 복사")
 우선 github에서 아까 생성하였던 github 블로그 url을 복사해준다.
 
 ```bash
     git clone https://github.com/HeyItsSPOON/heyitsspoon.github.io.git
 ```
-![static](/assets/images/github-blog/copy-theme.png "테마 적용")
+![static](./assets/images/github-blog/copy-theme.png "테마 적용")
 git-cmd를 열어 작업 할 디렉토리로 이동 후 git clone 명령어를 이용해 해당 repository를 로컬 PC에 불러온다.
 그 후 다운받은 테마를 repository에 복사한다.
 
@@ -203,7 +203,7 @@ git push
 ```
 git-cmd로 현재 작업중인 repository 디렉토리로 이동 후에 바뀐 파일을 검사하고 commit 후에 push 해주도록 한다.
 
-![static](/assets/images/github-blog/theme-apply.png "테마 적용 완료")
+![static](./assets/images/github-blog/theme-apply.png "테마 적용 완료")
 그 후 다시 url로 접속 해보면 깔끔하게 적용 된 테마를 만날 수 있다.
 
 
