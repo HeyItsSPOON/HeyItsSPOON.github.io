@@ -163,7 +163,7 @@ NexT repository로 이동 후 테마를 zip 파일로 다운받은 후 압축을
 우선 github에서 아까 생성하였던 github 블로그 url을 복사해준다.
 
 ```bash
-    git clone https://github.com/HeyItsSPOON/heyitsspoon.github.io.git
+git clone https://github.com/HeyItsSPOON/heyitsspoon.github.io.git
 ```
 ![copy-theme](https://heyitsspoon.github.io/assets/images/github-blog/copy-theme.png "테마 적용")
 git-cmd를 열어 작업 할 디렉토리로 이동 후 git clone 명령어를 이용해 해당 repository를 로컬 PC에 불러온다.
