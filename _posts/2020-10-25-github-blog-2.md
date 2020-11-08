@@ -57,7 +57,7 @@ tags:
 모든 디렉토리를 다 확인 할 필요는 없을 것 같고 필요한 부분은 공식 문서의 디렉토리 설명을 참조하였다.
 
 * _config.yml : 환경설정 정보를 보관한다. 명령어를 실행할 때 여러가지 옵션들을 추가할 수도 있지만, 그렇게 따로 외우는 것보다 이 파일에 정의해두는게 더 편리하다.
-* _includes : 재사용하기 위한 파일을 담는 디렉토리로서, 필요에 따라 포스트나 레이아웃에 쉽게 삽입할 수 있다. {% include file.ext %} 와 같이 Liquid 태그를 사용하면 _includes/file.ext 파일에 담긴 코드가 삽입된다.
+* _includes : 재사용하기 위한 파일을 담는 디렉토리로서, 필요에 따라 포스트나 레이아웃에 쉽게 삽입할 수 있다.
 * _posts : 한마디로 말하면, 당신의 컨텐츠다. 중요한 것은 파일들의 명명규칙인데, 반드시 이 형식을 따라야 한다: YEAR-MONTH-DAY-title.MARKUP. 고유주소는 포스트 별로 각각 정의할 수 있지만, 날짜와 마크업 언어 종류는 오로지 파일명에 의해 결정된다.
 
 주로 내가 수정 할 파일은 이렇게 세 개 인것 같다.
@@ -75,58 +75,42 @@ jekyll 파일 이것 저것 열어보다 보면 뜬금없이 중괄호 2개로 �
 
 ```html
 <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> {% include _partials/header.html %} </div>
+      <div class="header-inner"> {% raw %}{% include _partials/header.html %}{% endraw %} </div>
 </header>
 ```
 
+![theme-apply](https://heyitsspoon.github.io/assets/images/github-blog/theme-apply.PNG "테마 적용 완료")
 
-무작정 모든 을 커스터마이징 하기 위해 크롬의 개발자도구를 이용해 약간의 html 분석과
-
+크롬 개발자 도구로 html 코드를 확인 후 비교 했을 때 _includes/_partials/header.html에서 메뉴 구성을 하는 걸 확인 할 수 있었다.
 
 ```html
 <nav class="site-nav">
-  {% if site.swiftype_key or site.algolia_search.enable or site.tinysou_Key or site.local_search.enable %}
-    {% assign hasSearch = true %}
-  {% endif %}
-
-  {% if site.menu %}
+  .
+  .
+  .
+  {% raw %} {% if site.menu %}{% endraw %}
     <ul id="menu" class="menu">
-      {% for name_path in site.menu %}
-        {% assign name = name_path[0] %}
-        {% assign path = name_path[1] %}
-        {% assign itemName = name | downcase %}
+      {% raw %}{% for name_path in site.menu %}{% endraw %}
+      {% raw %}  {% assign name = name_path[0] %}{% endraw %}
+        {% raw %}{% assign path = name_path[1] %}{% endraw %}
+        {% raw %}{% assign itemName = name | downcase %}{% endraw %}
         <li class="menu-item menu-item-{{ itemName }}">
           <a href="{{ path | relative_url }}" rel="section">
-            {% if site.menu_icons.enable %}
+            {% raw %}{% if site.menu_icons.enable %}{% endraw %}
               <i class="menu-item-icon fa fa-fw fa-{{site.menu_icons[itemName] | default: 'question-circle' | downcase }}"></i> <br />
-            {% endif %}
-            {{ __.menu[name] }}
+            {% raw %}{% endif %}{% endraw %}
+            {% raw %}{{ __.menu[name] }}{% endraw %}
           </a>
         </li>
-      {% endfor %}
-
-      {% if hasSearch %}
-        <li class="menu-item menu-item-search">
-          {% if site.swiftype_key %}
-            <a href="javascript:;" class="st-search-show-outputs">
-          {% elsif site.local_search.enable or site.algolia_search.enable %}
-            <a href="javascript:;" class="popup-trigger">
-          {% endif %}
-            {% if site.menu_icons.enable %}
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            {% endif %}
-            {{ __.menu.search }}
-          </a>
-        </li>
-      {% endif %}
+      {% raw %}{% endfor %}{% endraw %}
+      .
+      .
+      . 
     </ul>
-  {% endif %}
-
-  {% if hasSearch %}
-    <div class="site-search">
-      {% include _partials/search.html %}
-    </div>
-  {% endif %}
+  {% raw %}{% endif %}{% endraw %}
+  .
+  .
+  .
 </nav>
 ```
 
@@ -140,6 +124,8 @@ menu:
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 ```
+
+자 html 태그와 비교 해 보니 이 부분이 바로 내가 원하는 부분이다. site.menu라는 liquid 변수로 config 파일에 있는 menu 항목을 불러와 메뉴를 구성하는 것을 확인 할 수 있었다. 나는 현재 about 페이지가 필요하니 about에 주석을 해제하도록 한다. 
 
 # 블로그 커스터마이징하기
 
