@@ -112,7 +112,7 @@ seo: false
 index_with_subtitle: false
 
 # ---------------------------------------------------------------
-# Menu Settings
+# Menu Settings 
 # ---------------------------------------------------------------
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
@@ -134,7 +134,7 @@ menu:
 #   When an question mask icon presenting up means that the item has no mapping icon.
 menu_icons:
   enable: true
-  #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
+  KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
   about: user
   categories: th
@@ -143,6 +143,7 @@ menu_icons:
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
+  project: pencil-square
 
 # Collections
 collections:
