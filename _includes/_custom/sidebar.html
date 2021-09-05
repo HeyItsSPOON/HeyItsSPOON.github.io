@@ -1,1 +1,27 @@
-
+<div class="side-custom">
+{% if site.menu %}
+<ul id="sidemenu" class="sidemenu">
+  {% for name_path in site.menu %}
+    {% assign name = name_path[0] %}
+    {% assign path = name_path[1] %}
+    {% assign itemName = name | downcase %}
+    <li class="side-menu-item side-menu-item-{{ itemName }}">
+      <a href="{{ path | relative_url }}" rel="section">
+        {{ __.menu[name] }}
+      </a>
+         {% for post in site.categories[name] %}
+            {% if post.tags != null %}
+               {% assign tag_list = post.tags | uniq %}
+            {% endif %}
+         {% endfor %}
+         {% for tag in tag_list %}
+            {% assign tag_url_encode = tag | url_encode | replace: '+', '%20' %}
+               <ul class="side-dropdown-content" >
+                  <a class="side-dropdown-item" href="{{ '/tag/#/' | relative_url | append: tag_url_encode }}">{{ tag }}</a>
+               </ul>
+         {% endfor %}    
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+</div>

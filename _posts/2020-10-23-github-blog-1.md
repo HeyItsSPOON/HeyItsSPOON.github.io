@@ -2,8 +2,8 @@
 title: Github 블로그 구축하기 (1)
 description: Github 블로그 구축부터 커스터마이징까지
 categories:
- - github
-tags:
+ - project
+tags: github
 photos:
 
 ---

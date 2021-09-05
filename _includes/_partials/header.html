@@ -50,6 +50,18 @@
             {% endif %}
             {{ __.menu[name] }}
           </a>
+            {% for post in site.categories[name] %}
+              {% if post.tags != null %}
+                {% assign tag_list = post.tags | uniq %}
+                {% for tag in tag_list %}
+                  {% assign tag_url_encode = tag | url_encode | replace: '+', '%20' %}
+                    <ul class="dropdown-content" >
+                      <a class = "dropdown-item" href="{{ '/tag/#/' | relative_url | append: tag_url_encode }}">{{ tag }}</a>
+                    </ul>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            
         </li>
       {% endfor %}
 
