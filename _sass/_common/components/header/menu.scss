@@ -4,6 +4,7 @@
   margin-top: 20px;
   padding-left: 0;
   text-align: center;
+  z-index: 10000000000;
 }
 
 .menu .menu-item {
@@ -44,7 +45,6 @@
   background-color: darken(#ffffff, 3%);
   min-width: 100%;
   box-shadow: 5px;
-  z-index: 1;
   box-sizing: border-box;
 
   a {
@@ -68,6 +68,10 @@
   min-width: 100%;
   display: block;
   // font-size: 17px;
+}
+
+.dropdown-list{
+  list-style: none;
 }
 
 .dropdown-item {

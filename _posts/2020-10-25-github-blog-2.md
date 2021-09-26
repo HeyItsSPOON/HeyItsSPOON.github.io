@@ -3,7 +3,7 @@ title: Github 블로그 구축하기 (2)
 description: Github 블로그 구축부터 커스터마이징까지
 categories:
  - project
-tags: github
+tags: test
 ---
 
 > Github 블로그 구축하기 (2) - 커스터마이징
