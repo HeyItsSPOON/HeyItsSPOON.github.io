@@ -3,15 +3,16 @@ title: Github 블로그 구축하기 (2)
 description: Github 블로그 구축부터 커스터마이징까지
 categories:
  - project
-tags: test
+tags: github
 ---
 
 > Github 블로그 구축하기 (2) - 커스터마이징
 
 <!-- more -->
 
-[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/tutorial/2020/10/23/github-blog-1/)
-[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/tutorial/2020/10/25/github-blog-2/)
+[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2020/10/23/github-blog-1/)
+
+[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2020/10/25/github-blog-2/)
 
 # 목차
 [1. 목차](#목차)
