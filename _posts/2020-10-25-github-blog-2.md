@@ -73,8 +73,8 @@ jekyll 파일 이것 저것 열어보다 보면 뜬금없이 중괄호 2개로 �
 ## 설계하기
 기존의 home, archives, categories, tags 4개의 메뉴 대신 category와 tag를 이용하여 category를 메인 메뉴로, tag를 서브 메뉴로 쓰는 2 depth 구조로 변경 할 계획이다.
 
-## 구조 분석하기
-자, 이제 디렉토리 구조도 알았고 liquid 언어도 알았고 본격적인 구조 분석을 해보자.
+## 블로그 수정하기
+자, 이제 디렉토리 구조도 알았고 liquid 언어도 알았고 본격적으로 수정을 해보자.
 일단 메뉴를 담고있는 헤더같은 경우엔 재사용을 하는 경우가 많으니 _include에 있을 확률이 매우 높다.
 따라서 _include/_layout.html 을 가장먼저 살펴보았다. 아니나 다를까, 여기에 내가 원하던 정보들이 있었다.
 
@@ -120,19 +120,38 @@ jekyll 파일 이것 저것 열어보다 보면 뜬금없이 중괄호 2개로 �
 ```
 
 ```yml
-menu:
-  home: /
-  #categories: /categories/
-  #about: /about/
-  archives: /archives/
-  #tags: /tags/
-  #sitemap: /sitemap.xml
-  #commonweal: /404.html
+# Local search
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
 ```
 
-자 html 태그와 비교 해 보니 이 부분이 바로 내가 원하는 부분이다. site.menu라는 liquid 변수로 config 파일에 있는 menu 항목을 불러와 메뉴를 구성하는 것을 확인 할 수 있었다. 나는 현재 about 페이지가 필요하니 about에 주석을 해제하도록 한다. 또 카테고리와 태그 대신, 
+자 html 태그와 비교 해 보니 이 부분이 바로 내가 원하는 부분이다. site.menu라는 liquid 변수로 config 파일에 있는 menu 항목을 불러와 메뉴를 구성하는 것을 확인 할 수 있었다. 
+나는 현재 about 페이지가 필요하니 about에 주석을 해제하도록 한다. 또 카테고리와 태그 대신, 직접 커스텀 한 메뉴를 넣을 것이기 때문에 categories와 tags는 주석처리 해주도록 한다.
 
-# 블로그 커스터마이징하기
+![menu-apply](https://heyitsspoon.github.io/assets/images/github-blog/menu-apply.PNG "메뉴 적용 완료")
+
+그렇다면 위와같이 기존에 있던 categories과 tag는 사라지고 대신 about 메뉴가 생긴 것을 볼 수 있다.
+
+```yml
+```
+
+또한 원활한 블로그 탐방을 위해 블로그 내 검색 기능도 추가하려면 local_search 부분에서 enable 부분을 true로 변경 해 준다.
+
+![search](https://heyitsspoon.github.io/assets/images/github-blog/search.PNG "메뉴 적용 완료")
+
+검색 기능이 활성화 된 것을 확인 할 수 있다.
+
+## 블로그 커스터마이징하기 -- 설계
+이제 next 테마 기본 기능에서 변경 할 수 있는것은 변경하였고 본격적으로 커스터마이징에 들어가보자.
+
+
+
+## 블로그 커스터마이징하기 -- 구현
 
 ***
 [^1]: https://jekyllrb-ko.github.io/docs/structure/
