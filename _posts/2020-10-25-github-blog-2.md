@@ -119,16 +119,6 @@ jekyll 파일 이것 저것 열어보다 보면 뜬금없이 중괄호 2개로 �
 </nav>
 ```
 
-```yml
-# Local search
-local_search:
-  enable: true
-  # if auto, trigger search by changing input
-  # if manual, trigger search by pressing enter key or search button
-  trigger: auto
-  # show top n results per article, show all results by setting to -1
-  top_n_per_article: 1
-```
 
 자 html 태그와 비교 해 보니 이 부분이 바로 내가 원하는 부분이다. site.menu라는 liquid 변수로 config 파일에 있는 menu 항목을 불러와 메뉴를 구성하는 것을 확인 할 수 있었다. 
 나는 현재 about 페이지가 필요하니 about에 주석을 해제하도록 한다. 또 카테고리와 태그 대신, 직접 커스텀 한 메뉴를 넣을 것이기 때문에 categories와 tags는 주석처리 해주도록 한다.
@@ -138,6 +128,14 @@ local_search:
 그렇다면 위와같이 기존에 있던 categories과 tag는 사라지고 대신 about 메뉴가 생긴 것을 볼 수 있다.
 
 ```yml
+# Local search
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
 ```
 
 또한 원활한 블로그 탐방을 위해 블로그 내 검색 기능도 추가하려면 local_search 부분에서 enable 부분을 true로 변경 해 준다.
