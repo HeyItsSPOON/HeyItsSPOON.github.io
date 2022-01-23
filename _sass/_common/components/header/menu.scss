@@ -2,9 +2,10 @@
 // --------------------------------------------------
 .menu {
   margin-top: 20px;
+  z-index: $zindex-5;
   padding-left: 0;
   text-align: center;
-  z-index: 10000000000;
+  position: relative;
 }
 
 .menu .menu-item {
@@ -72,6 +73,7 @@
 
 .dropdown-list{
   list-style: none;
+  position: relative;
 }
 
 .dropdown-item {
