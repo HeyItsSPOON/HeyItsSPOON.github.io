@@ -8,8 +8,6 @@ tags: github
 
 > Github 블로그 구축하기 (2) - 커스터마이징
 
-<!-- more -->
-
 [1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2020/10/23/github-blog-1/)
 
 [2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2020/10/25/github-blog-2/)
@@ -23,9 +21,19 @@ tags: github
 
 [2.2 liquid 언어란?](#liquid-언어란?)
 
-[2.3 구조 분석하기](#구조-분석하기)
+[3. 블로그 수정하기](#블로그-수정하기)
 
-[3. 블로그 커스터마이징하기](#블로그-커스터마이징하기)
+[4. 블로그 커스터마이징하기](#블로그-커스터마이징하기)
+
+[4.1 커스텀 메뉴 추가하기](#커스텀-메뉴-추가하기)
+
+[4.2 드롭다운 메뉴 만들기](#드롭다운-메뉴-만들기)
+
+[4.3 사이드 메뉴 만들기](#사이드-메뉴-만들기)
+
+[5. 마치며](#마치며)
+
+
 
 # 구조 파악하기
 ## jekyll 디렉토리 구조 [^1]
@@ -177,17 +185,16 @@ local_search:
 검색 기능이 활성화 된 것을 확인 할 수 있습니다.
 
 
-## 블로그 커스터마이징하기
+# 블로그 커스터마이징하기
 그럼 이제 본격적으로 커스터마이징 하기 위해 구조를 설계 해 봅시다. 
 기존의 메뉴를 그대로 쓰기 보다는 타 블로그 사이트 처럼 제가 원하는 메뉴를 추가하여 카테고리를 나누려고 합니다. 
 category와 tag를 이용하여 category를 메인 메뉴로, tag를 서브 메뉴로 써서 기존 메뉴보다 다양하게 글을 분류할 수 있고 정적 페이지이지만 동적으로 메뉴를 추가할 수 있도록 수정 할 예정입니다.
 또한 상단 header에는 category와 tag를 이용한 드롭다운 메뉴를 만들고 우측 사이드바에도 custom 공간에 해당 메뉴를 만들어 조금 더 메뉴 이동이 쉽도록 만들어 보려고 합니다.
 
-### 커스텀 메뉴 추가하기
+## 커스텀 메뉴 추가하기
 우선 main menu로 사용 할 categories를 헤더에 출력해봅시다.
 
 ```html
-
 .
 .
 .
@@ -267,44 +274,44 @@ menu:
 
 위 작업까지 마치고 나면 project 메뉴가 정상적으로 추가 된 것을 확인 할 수 있습니다.
 
-### 드롭다운 메뉴 만들기
+## 드롭다운 메뉴 만들기
 드롭다운 메뉴를 만들기 위해서는 먼저 tag로 리스트를 만들어야 합니다. 메뉴 아래에 해당 카테고리 아래에 있는 tag 정보를 리스트로 만들어 출력하는 코드를 추가합니다.
 
 ```html
-      .
-      .
-      .
-      {% raw %}{% for name_path in site.menu %}
-        {% assign name = name_path[0] %}
-        {% assign path = name_path[1] %}
-        {% assign itemName = name | downcase %}
-        <li class="menu-item menu-item-{{ itemName }}">
-          <a href="{{ path | relative_url }}" rel="section">
-            {% if site.menu_icons.enable %}
-              <i class="menu-item-icon fa fa-fw fa-{{site.menu_icons[itemName] | default: 'question-circle' | downcase }}"></i> <br />
-            {% endif %}
-            {{ __.menu[name] }}
-          </a>
-            {% for post in site.categories[name] %}
-              {% if post.tags %}
-                {% assign tag_list = tag_list | concat: post.tags | uniq %}
-              {% endif %}
-            {% endfor %}
-            {% if site.categories[name] %}
-              <ul class="dropdown-content" >
-              {% for tag in tag_list %}  
-                {% assign tag_url_encode = tag | url_encode | replace: '+', '%20' %}
-                  <li class="dropdown-list">
-                    <a class = "dropdown-item" href="{{ '/tag/#/' | relative_url | append: tag_url_encode }}">{{ tag }}</a>
-                  </li> 
-              {% endfor %}
-              </ul>
-            {% endif%}
-        </li>
-      {% endfor %}{% endraw %}
-      .
-      .
-      .
+.
+.
+.
+{% raw %}{% for name_path in site.menu %}
+  {% assign name = name_path[0] %}
+  {% assign path = name_path[1] %}
+  {% assign itemName = name | downcase %}
+  <li class="menu-item menu-item-{{ itemName }}">
+    <a href="{{ path | relative_url }}" rel="section">
+    {% if site.menu_icons.enable %}
+      <i class="menu-item-icon fa fa-fw fa-{{site.menu_icons[itemName] | default: 'question-circle' | downcase }}"></i> <br />
+    {% endif %}
+    {{ __.menu[name] }}
+    </a>
+    {% for post in site.categories[name] %}
+      {% if post.tags %}
+        {% assign tag_list = tag_list | concat: post.tags | uniq %}
+      {% endif %}
+    {% endfor %}
+    {% if site.categories[name] %}
+        <ul class="dropdown-content" >
+        {% for tag in tag_list %}  
+          {% assign tag_url_encode = tag | url_encode | replace: '+', '%20' %}
+            <li class="dropdown-list">
+              <a class = "dropdown-item" href="{{ '/tag/#/' | relative_url | append: tag_url_encode }}">{{ tag }}</a>
+            </li> 
+        {% endfor %}
+        </ul>
+      {% endif%}
+  </li>
+{% endfor %}{% endraw %}
+.
+.
+.
 ```
 
 먼저 해당 메뉴와 동일한 이름을 가진 카테고리에 있는 포스트를 전부 검사하여 태그가 있는지 검사하고, 태그가 있으면 해당 태그를 리스트에 저장 후에 리스트를 출력하는 코드를 작성하였습니다.
@@ -317,8 +324,8 @@ menu:
 메뉴 css는 `_sass/_common/components/header/header.scss` 경로에 있습니다.
 
 ```css
-    @at-root %menu-a-hover { border-bottom-color: $menu-link-hover-border; }
-    &:hover { 
+@at-root %menu-a-hover { border-bottom-color: $menu-link-hover-border; }
+&:hover { 
       @extend %menu-a-hover; 
       -webkit-transform: scaleX(1);
       -ms-transform: scaleX(1);
@@ -328,7 +335,6 @@ menu:
 
   .fa { margin-right: 5px; }
 }
-
 
 .use-motion .menu-item { opacity: 0; }
 

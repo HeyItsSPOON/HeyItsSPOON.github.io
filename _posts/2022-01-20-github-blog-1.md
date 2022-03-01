@@ -4,17 +4,15 @@ description: Github 블로그 구축부터 커스터마이징까지
 categories:
  - project
 tags: github
-photos:
+photos: 
 
 ---
 
 > Github 블로그 구축하기 (1) - Github 블로그 생성
 
-<!-- more -->
+[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2022/01/20/github-blog-1/)
 
-[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2020/10/23/github-blog-1/)
-
-[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2020/10/25/github-blog-2/)
+[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2022/01/20/github-blog-2/)
 
 
 
@@ -31,7 +29,23 @@ photos:
 
 [3.2 사전 작업](#사전-작업)
 
-[4. 마치며](#마치며)
+[3.2.1 저장소(repository) 만들기](#저장소(repository)-만들기)
+
+[4.1 블로그 생성](#블로그-생성)
+
+[4.2.1 프레임워크 선택하기](#프레임워크-선택하기)
+
+[4.2.2 테마 선택하기](#테마-선택하기)
+
+[4.2.3 테마 적용하기](#테마-적용하기)
+
+[4.2.4 Ruby 및 jekyll, bundler 설치](#Ruby-및-jekyll,-bundler-설치)
+
+[4.2.5 주의사항](#주의사항)
+
+[4.2.6 로컬에서 블로그 실행하기](#로컬에서-블로그-실행하기)
+
+[5. 마치며](#마치며)
 
 
 
@@ -49,9 +63,6 @@ photos:
 
 주로 시스템적인 부분과 개발 부분에서 제가 공부 한 것들, 진행한 프로젝트들에 대해 올릴 예정이며,
 분석하고 얘기하는 것을 좋아하기 때문에 가끔 다른 분야에 관한 이야기도 포스팅할 예정입니다.
-
-
-
 
 
 # Github 블로그 만들기
@@ -85,8 +96,6 @@ Github 페이지를 사용 시 주의해야 할 사항 역시 분명히 존재�
     GitHub 페이지 사이트의 builds 제한은 시간당 10회 입니다.
 
 
-
-
 ## 사전 작업
 ### 저장소(repository) 만들기 [^4]
 
@@ -99,7 +108,7 @@ Add a README file에 체크 후 생성하면 약 1분에서 5분 후에 README �
 자 이제 나만의 Github 블로그를 생성하기 위한 기본적인 작업이 끝났습니다.
 
 
-
+## 블로그 생성
 ### 프레임워크 선택하기
 
 Github Page는 Github에서 제공하는 정적사이트 (Static Website) 호스팅 서비스입니다.
