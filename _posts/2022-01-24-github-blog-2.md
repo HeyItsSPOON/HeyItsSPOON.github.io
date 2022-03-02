@@ -8,9 +8,9 @@ tags: github
 
 > Github 블로그 구축하기 (2) - 커스터마이징
 
-[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2020/10/23/github-blog-1/)
+[1. Github 블로그 구축하기 (1) - Github 블로그 생성](https://heyitsspoon.github.io/project/2022/01/20/github-blog-1/)
 
-[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2020/10/25/github-blog-2/)
+[2. Github 블로그 구축하기 (2) - 커스터마이징](https://heyitsspoon.github.io/project/2022/01/24/github-blog-2/)
 
 # 목차
 [1. 목차](#목차)
