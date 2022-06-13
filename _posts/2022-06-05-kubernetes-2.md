@@ -13,8 +13,35 @@ tags: kubernetes
 [2. kubernetes 개념 및 cluster 설치 방법 (2) - kubernetes 개념 정리](https://heyitsspoon.github.io/project/2022/06/05/kubernetes-2/)
 
 # 목차
+[1. 목차](#목차)
 
-[17. 마치며](#마치며)
+[2. Cluster 구조](#Cluster_구조)
+
+[3. hosts 등록](#hosts_등록)
+
+[4. 서버 시간 동기화](#서버_시간_동기화)
+
+[5. 방화벽 설정](#방화벽_설정)
+
+[6. 쿠버네티스 사용 모듈 로드](#쿠버네티스_사용_모듈_로드)
+
+[7. 환경 변수 설정](#환경_변수_설정)
+
+[8. 컨테이너 런타임 다운로드](#컨테이너_런타임_다운로드)
+
+[9. kubernetes 다운로드](#kubernetes_다운로드)
+
+[10. NFS 구축](#NFS_구축)
+
+[11. kubernetes 설치](#kubernetes_설치)
+
+[12. CNI 다운로드](#CNI_다운로드)
+
+[13. kubernetes cluster 구축](#kubernetes_cluster_구축)
+
+[14. Storage Class](#Storage_Class)
+
+[15. 마치며](#마치며)
 
 # Cluster 구조
 
@@ -91,7 +118,7 @@ server k8s-master2 iburst
 # /etc/sysconfig/iptables
 
 #### KUBERNETES API 서버
--I INPUT -p tcp --dport 6334 -j ACCEPT # 기본 포트 변경
+-I INPUT -p tcp --dport 6443 -j ACCEPT
 
 #### ETCD SERVER 클라이언트 API
 -I INPUT -p tcp --dport 2379:2380 -j ACCEPT
@@ -239,7 +266,7 @@ gitlab:/kube_store /kube_store nfs sync 0 0
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: InitConfiguration
 localAPIEndpoint:
-  bindPort: 6334
+  bindPort: 6443
 ---
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
@@ -254,7 +281,7 @@ networking:
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: JoinControlPlane
 localAPIEndpoint:
-  bindPort: 6334
+  bindPort: 6443
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1
 kind: KubeletConfiguration
@@ -388,3 +415,6 @@ spec:
 # kubectl apply -f deployment.yaml
 # kubectl apply -f class.yaml
 ```
+
+# 마치며
+여기까지 마쳤다면 성공적으로 쿠버네티스 클러스터를 구축 할 수 있습니다. 이전 포스팅에서 개념을 이해하셨다면 그렇게 어렵지 않게 구축하셨을거라 생각합니다. 하지만 현재 상태로는 쿠버네티스간의 failover가 정상적으로 작동하지 않게 됩니다. 해당 이유는 다음 포스팅에서 설명하도록 하고 이번 포스팅은 이만 마치도록 하겠습니다.
